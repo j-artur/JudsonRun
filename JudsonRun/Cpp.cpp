@@ -44,5 +44,5 @@ void Cpp::Update()
 void Cpp::Draw()
 {
     shadow->Draw(x, float(targetY + 32), Layer::LOWER);
-    anim->Draw(x, y, Layer::FRONT);
+    anim->Draw(x, y, Layer::MIDDLE);
 }

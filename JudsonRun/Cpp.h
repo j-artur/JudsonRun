@@ -1,14 +1,9 @@
 #ifndef _CPP_H_
 #define _CPP_H_
 
-// ---------------------------------------------------------------------------------
-// Inclusões
-
 #include "Animation.h"
 #include "JudsonRun.h"
 #include "Object.h"
-
-// ------------------------------------------------------------------------------
 
 class Cpp : public Object
 {
@@ -31,7 +26,5 @@ class Cpp : public Object
     void Update();
     void Draw();
 };
-
-// ---------------------------------------------------------------------------------
 
 #endif

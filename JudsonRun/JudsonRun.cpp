@@ -3,6 +3,7 @@
 #include "Cpp.h"
 #include "CppGenerator.h"
 #include "Engine.h"
+#include "Judson.h"
 #include "Mouse.h"
 #include "Resources.h"
 
@@ -12,7 +13,7 @@ void JudsonRun::Init()
 {
     scene = new Scene();
 
-    // bg = new Sprite("Resources/background.png");
+    bg = new Sprite("Resources/background.png");
     shadow = new Image("Resources/shadow.png");
 
     auto cppGenerator = new CppGenerator(shadow);
@@ -20,6 +21,10 @@ void JudsonRun::Init()
 
     auto mouse = new Mouse();
     scene->Add(mouse, MOVING);
+
+    auto judson = new Judson(shadow);
+    judson->MoveTo(window->CenterX(), window->CenterY());
+    scene->Add(judson, MOVING);
 }
 
 void JudsonRun::Update()
@@ -34,7 +39,7 @@ void JudsonRun::Update()
 
 void JudsonRun::Draw()
 {
-    // bg->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
+    bg->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     scene->Draw();
 }
 
