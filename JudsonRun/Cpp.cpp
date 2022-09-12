@@ -43,6 +43,6 @@ void Cpp::Update()
 
 void Cpp::Draw()
 {
-    shadow->Draw(x, float(targetY + 32), Layer::LOWER);
-    anim->Draw(x, y, Layer::MIDDLE);
+    shadow->Draw(float(int(x)), float(targetY + 32), Layer::LOWER);
+    anim->Draw(float(int(x)), float(int(y)), 0.9f - (targetY / float(window->Height())) * 0.8f);
 }

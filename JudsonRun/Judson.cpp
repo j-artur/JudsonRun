@@ -4,19 +4,18 @@ Judson::Judson(Image *shadowImg)
 {
     type = PLAYER;
 
-    tileSet = new TileSet("Resources/judson.png", 64, 96, 2, 4);
+    tileSet = new TileSet("Resources/judson.png", 64, 96, 6, 12);
     anim = new Animation(tileSet, 0.2f, true);
 
     shadow = new Sprite(shadowImg);
 
     speed = 300.0f;
 
-    BBox(new Rect(-20.0f, -34.0f, 14.0f, 48.0f));
+    BBox(new Rect(-20.0f, -32.0f, 14.0f, 50.0f));
 }
 
 Judson::~Judson()
 {
-    delete shadow;
     delete anim;
     delete tileSet;
 }
@@ -40,29 +39,28 @@ void Judson::Update()
     if (window->KeyUp(VK_DOWN))
         down = false;
 
-    if (left && !right && !up && !down)
+    if (left && right)
+        left = right = false;
+    if (up && down)
+        up = down = false;
+
+    float diaSpeed = speed / float(sqrt(2.0));
+
+    if (left && up)
+        Translate(-diaSpeed * gameTime, -diaSpeed * gameTime);
+    else if (left && down)
+        Translate(-diaSpeed * gameTime, diaSpeed * gameTime);
+    else if (right && up)
+        Translate(diaSpeed * gameTime, -diaSpeed * gameTime);
+    else if (right && down)
+        Translate(diaSpeed * gameTime, diaSpeed * gameTime);
+    else if (left)
         Translate(-speed * gameTime, 0.0f);
-    else if (!left && right && !up && !down)
+    else if (right)
         Translate(speed * gameTime, 0.0f);
-    else if (!left && !right && up && !down)
+    else if (up)
         Translate(0.0f, -speed * gameTime);
-    else if (!left && !right && !up && down)
-        Translate(0.0f, speed * gameTime);
-    else if (left && !right && up && !down)
-        Translate(-(speed / float(sqrt(2.0))) * gameTime, -(speed / float(sqrt(2.0))) * gameTime);
-    else if (left && !right && !up && down)
-        Translate(-(speed / float(sqrt(2.0))) * gameTime, (speed / float(sqrt(2.0))) * gameTime);
-    else if (!left && right && up && !down)
-        Translate((speed / float(sqrt(2.0))) * gameTime, -(speed / float(sqrt(2.0))) * gameTime);
-    else if (!left && right && !up && down)
-        Translate((speed / float(sqrt(2.0))) * gameTime, (speed / float(sqrt(2.0))) * gameTime);
-    else if (left && !right && up && down)
-        Translate(-speed * gameTime, 0.0f);
-    else if (!left && right && up && down)
-        Translate(speed * gameTime, 0.0f);
-    else if (left && right && up && !down)
-        Translate(0.0f, -speed * gameTime);
-    else if (left && right && !up && down)
+    else if (down)
         Translate(0.0f, speed * gameTime);
 
     if (powered)
@@ -88,12 +86,15 @@ void Judson::OnCollision(Object *other)
         powered = true;
         poweredTime = 10.0f;
 
+        // temporario, so pra testar
+        JudsonRun::panel->AddScore(100);
+
         JudsonRun::scene->Delete(other, MOVING);
     }
 }
 
 void Judson::Draw()
 {
-    shadow->Draw(x, y + 48, Layer::LOWER);
-    anim->Draw(x, y, Layer::FRONT);
+    shadow->Draw(float(int(x)), float(int(y) + 48), Layer::LOWER);
+    anim->Draw(float(int(x)), float(int(y)), 0.9f - (y / float(window->Height())) * 0.8f);
 }

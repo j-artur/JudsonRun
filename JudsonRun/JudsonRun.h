@@ -1,8 +1,12 @@
 #ifndef _PLATFORMER_H_
 #define _PLATFORMER_H_
 
+#include "Cpp.h"
 #include "CppGenerator.h"
+#include "Engine.h"
 #include "Game.h"
+#include "Judson.h"
+#include "Panel.h"
 #include "Scene.h"
 
 enum JudsonRunObjects
@@ -21,6 +25,7 @@ class JudsonRun : public Game
 
   public:
     static Scene *scene;
+    static Panel *panel;
 
     void Init();
     void Update();

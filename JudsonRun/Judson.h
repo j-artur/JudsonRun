@@ -2,8 +2,10 @@
 #define _JUDSON_H_
 
 #include "Animation.h"
+#include "Cpp.h"
 #include "JudsonRun.h"
 #include "Object.h"
+#include "Panel.h"
 
 class Judson : public Object
 {

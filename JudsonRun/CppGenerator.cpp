@@ -17,7 +17,6 @@ CppGenerator::CppGenerator(Image *shadow) : shadow(shadow), timer(0.0f)
 CppGenerator::~CppGenerator()
 {
     delete tileSet;
-    delete shadow;
 }
 
 void CppGenerator::Update()

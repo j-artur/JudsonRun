@@ -173,8 +173,8 @@
     <ClCompile Include="Judson.cpp" />
     <ClCompile Include="JudsonRun.cpp" />
     <ClCompile Include="Image.cpp" />
-    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Panel.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -193,9 +193,9 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Judson.h" />
-    <ClInclude Include="Mouse.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="JudsonRun.h" />
+    <ClInclude Include="Panel.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="Scene.h" />
