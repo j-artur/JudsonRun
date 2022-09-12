@@ -19,10 +19,21 @@ using std::uniform_int_distribution;
 
 // ------------------------------------------------------------------------------
 
+enum StudentsTypes
+{
+    ABRAAO,
+    WILLIAM,
+    ARTUR,
+    GUILHERM
+};
+
 class StudentGenerator : public Object
 {
 private:
     TileSet* tileSet = nullptr;         // tileset do estudante
+    TileSet* tileSet2 = nullptr;
+    TileSet* tileSet3 = nullptr;
+    TileSet* tileSet4 = nullptr;
     Image* shadow = nullptr;            // sombra do estudante
     float spawnInterval;                // tempo em segundo para aparecer novos estudantes
     float timer;                        // temporizador
