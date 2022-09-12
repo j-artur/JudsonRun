@@ -18,7 +18,7 @@ class Judson : public Object
     Sprite *shadow = nullptr;
     float powered = false;
     float poweredTime = 0.0f;
-    float speed;
+    float speed = 400.0f;
     bool left = false;
     bool right = false;
     bool up = false;

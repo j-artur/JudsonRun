@@ -7,10 +7,7 @@ Cpp::Cpp(TileSet *tileset, Image *shadowImg, int x, int targetY) : targetY(targe
     anim = new Animation(tileset, 0.2f, true);
     shadow = new Sprite(shadowImg);
 
-    uint SeqLeft[2] = { 0,1 };
-    uint SeqRight[2] = { 2,3 };
-
-    BBox(new Rect(-30.0f, -32.0f, 26.0f, 30.0f));
+    BBox(new Rect(-28.0f, -31.0f, 28.0f, 31.0f));
     MoveTo(float(x), -128.0f);
 }
 

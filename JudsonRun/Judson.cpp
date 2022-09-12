@@ -7,14 +7,14 @@ Judson::Judson(Image *shadowImg)
     tileSet = new TileSet("Resources/judson.png", 64, 96, 6, 12);
     anim = new Animation(tileSet, 0.2f, true);
 
-    uint SeqLeft[2] = { 0,1 };
-    uint SeqRight[2] = { 6,7 };
-    uint SeqPoweredLeft[4] = {2,3,4,5};
-    uint SeqPoweredRight[4] = { 8,9,10,11 };
-    uint SeqStillLeft[1] = { 1 };
-    uint SeqStillRight[1] = { 6 };
-    uint SeqPoweredStillLeft[2] = { 3,5 };
-    uint SeqPoweredStillRight[2] = { 8,10 };
+    uint SeqLeft[2] = {0, 1};
+    uint SeqRight[2] = {6, 7};
+    uint SeqPoweredLeft[4] = {2, 3, 4, 5};
+    uint SeqPoweredRight[4] = {8, 9, 10, 11};
+    uint SeqStillLeft[1] = {1};
+    uint SeqStillRight[1] = {6};
+    uint SeqPoweredStillLeft[2] = {3, 5};
+    uint SeqPoweredStillRight[2] = {8, 10};
 
     // normal states
     anim->Add(WALKLEFT, SeqLeft, 2);
@@ -30,9 +30,7 @@ Judson::Judson(Image *shadowImg)
 
     shadow = new Sprite(shadowImg);
 
-    speed = 300.0f;
-
-    BBox(new Rect(-20.0f, -32.0f, 14.0f, 50.0f));
+    BBox(new Rect(-16.0f, -36.0f, 16.0f, 48.0f));
 }
 
 Judson::~Judson()
@@ -45,29 +43,34 @@ void Judson::Update()
 {
 
     // mc movements
-    if (window->KeyDown(VK_LEFT)) {
+    if (window->KeyDown(VK_LEFT))
+    {
         state = WALKLEFT;
         lastPressed = LEFT;
         left = true;
     }
-    if (window->KeyDown(VK_RIGHT)) {
+    if (window->KeyDown(VK_RIGHT))
+    {
         state = WALKRIGHT;
         lastPressed = RIGHT;
         right = true;
     }
     if (window->KeyDown(VK_UP))
+    {
         if (lastPressed)
             state = WALKRIGHT;
         else
             state = WALKLEFT;
         up = true;
+    }
     if (window->KeyDown(VK_DOWN))
+    {
         if (lastPressed)
             state = WALKRIGHT;
         else
             state = WALKLEFT;
-
         down = true;
+    }
     if (window->KeyUp(VK_LEFT))
         left = false;
     if (window->KeyUp(VK_RIGHT))
@@ -93,20 +96,20 @@ void Judson::Update()
     // when powered change to powered states
     if (powered)
     {
-        switch (state) {
-
-            case STILLRIGHT:
-                state = POWEREDSTILLRIGHT;
-                break;
-            case STILLEFT:
-                state = POWEREDSTILLEFT;
-                break;
-            case WALKLEFT:
-                state = POWEREDLEFT;
-                break;
-            case WALKRIGHT:
-                state = POWEREDRIGHT;
-                break;
+        switch (state)
+        {
+        case STILLRIGHT:
+            state = POWEREDSTILLRIGHT;
+            break;
+        case STILLEFT:
+            state = POWEREDSTILLEFT;
+            break;
+        case WALKLEFT:
+            state = POWEREDLEFT;
+            break;
+        case WALKRIGHT:
+            state = POWEREDRIGHT;
+            break;
         }
     }
 
@@ -162,18 +165,19 @@ void Judson::OnCollision(Object *other)
     {
         if (powered)
         {
+            JudsonRun::panel->AddScore(100);
             JudsonRun::scene->Delete(other, MOVING);
         }
-        // game over
+        else
+        {
+            // game over
+        }
     }
 
     if (other->Type() == CPP && !((Cpp *)other)->Falling())
     {
         powered = true;
         poweredTime = 10.0f;
-
-        // temporario, so pra testar
-        JudsonRun::panel->AddScore(100);
 
         JudsonRun::scene->Delete(other, MOVING);
     }

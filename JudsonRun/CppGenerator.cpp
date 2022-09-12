@@ -8,8 +8,8 @@ CppGenerator::CppGenerator(Image *shadow) : shadow(shadow), timer(0.0f)
 
     random_device rd;
     rng.seed(rd());
-    posX = uniform_int_distribution<int>(15, window->Width() / 2 - 13);
-    posY = uniform_int_distribution<int>(16, window->Height() / 2 - 15);
+    posX = uniform_int_distribution<int>(14, window->Width() / 2 - 14);
+    posY = uniform_int_distribution<int>(96, window->Height() / 2 - 16);
 
     spawnInterval = 0.5f;
 }

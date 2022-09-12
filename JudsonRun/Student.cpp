@@ -1,31 +1,32 @@
 #include "Student.h"
 
-Student::Student(TileSet* tileset, Image* shadowImg, int x, int y)
+Student::Student(TileSet *tileset, Image *shadowImg, int x, int y)
 {
     type = ENEMY;
 
     anim = new Animation(tileset, 0.2f, true);
     shadow = new Sprite(shadowImg);
 
-    uint SeqLeft[2] = { 0,1 };
-    uint SeqRight[2] = { 2,3 };
+    uint SeqLeft[2] = {0, 1};
+    uint SeqRight[2] = {2, 3};
 
     anim->Add(WLEFT, SeqLeft, 2);
     anim->Add(WRIGHT, SeqRight, 2);
 
-    if (x) {
+    if (x)
+    {
         anim->Select(WLEFT);
         walkingDirection = WLEFT;
     }
-    else {
+    else
+    {
         anim->Select(WRIGHT);
         walkingDirection = WRIGHT;
     }
 
-
     speed = 200.0f;
 
-    BBox(new Rect(-20.0f, -32.0f, 14.0f, 50.0f));
+    BBox(new Rect(-16.0f, -36.0f, 16.0f, 48.0f));
     MoveTo(float(x), float(y));
 }
 
