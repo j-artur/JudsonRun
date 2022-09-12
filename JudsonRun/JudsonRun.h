@@ -3,6 +3,7 @@
 
 #include "Cpp.h"
 #include "CppGenerator.h"
+#include "StudentGenerator.h"
 #include "Engine.h"
 #include "Game.h"
 #include "Judson.h"

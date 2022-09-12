@@ -15,6 +15,9 @@ void JudsonRun::Init()
     auto cppGenerator = new CppGenerator(shadow);
     scene->Add(cppGenerator, STATIC);
 
+    auto studentGenerator = new StudentGenerator(shadow);
+    scene->Add(studentGenerator, STATIC);
+
     auto judson = new Judson(shadow);
     judson->MoveTo(window->CenterX(), window->CenterY());
     scene->Add(judson, MOVING);

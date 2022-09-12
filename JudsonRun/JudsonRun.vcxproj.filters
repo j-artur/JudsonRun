@@ -87,6 +87,12 @@
     <ClCompile Include="Panel.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="StudentGenerator.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Student.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resources.h">
@@ -147,6 +153,12 @@
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Panel.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="StudentGenerator.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Student.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

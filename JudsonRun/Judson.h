@@ -7,6 +7,9 @@
 #include "Object.h"
 #include "Panel.h"
 
+enum WalkingState { STILLEFT, STILLRIGHT, WALKLEFT, WALKRIGHT, POWEREDLEFT, POWEREDRIGHT, POWEREDSTILLEFT, POWEREDSTILLRIGHT };
+enum LastPressed { LEFT, RIGHT };
+
 class Judson : public Object
 {
   private:
@@ -20,6 +23,8 @@ class Judson : public Object
     bool right = false;
     bool up = false;
     bool down = false;
+    uint state = STILLRIGHT;
+    uint lastPressed = RIGHT;
 
   public:
     Judson(Image *shadow);

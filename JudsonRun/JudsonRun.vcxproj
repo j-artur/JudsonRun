@@ -177,6 +177,8 @@
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Student.cpp" />
+    <ClCompile Include="StudentGenerator.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileSet.cpp" />
@@ -200,6 +202,8 @@
     <ClInclude Include="Resources.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Student.h" />
+    <ClInclude Include="StudentGenerator.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileSet.h" />
     <ClInclude Include="Timer.h" />
