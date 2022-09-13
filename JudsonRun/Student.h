@@ -16,7 +16,7 @@ private:
     float speed;
 
 public:
-    Student(TileSet* tileset, Image* shadow, int x, int y);
+    Student(TileSet* tileset, Image* shadow, int x, int y, uint direction);
     ~Student();
 
 

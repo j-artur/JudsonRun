@@ -17,7 +17,7 @@ StudentGenerator::StudentGenerator(Image* shadow) : shadow(shadow), timer(0.0f)
 
     posY = uniform_int_distribution<int>(80, window->Height() / 2 - 15);
 
-    spawnInterval = 0.5f;
+    spawnInterval = 3.0f;
 }
 
 StudentGenerator::~StudentGenerator()
@@ -35,31 +35,57 @@ void StudentGenerator::Update()
     if (timer > spawnInterval)
     {
         uniform_int_distribution<int> rdm(0, 3);
+        uniform_int_distribution<int> rdm2(0, 1);
         int studentNumber = rdm(rng);
+        int direction = rdm2(rng);
 
         switch (studentNumber) {
             case ABRAAO:
             {
-                Student* student = new Student(tileSet, shadow, 0, posY(rng) * 2);
-                JudsonRun::scene->Add(student, MOVING);
+                if (direction == WLEFT) {
+                    Student* student = new Student(tileSet, shadow, 0, posY(rng) * 2, direction);
+                    JudsonRun::scene->Add(student, MOVING);
+                }
+                else {
+                    Student* student = new Student(tileSet, shadow, window->Width(), posY(rng) * 2, direction);
+                    JudsonRun::scene->Add(student, MOVING);
+                }
                 break;
             }
             case WILLIAM:
             {
-                Student* student = new Student(tileSet2, shadow, 0, posY(rng) * 2);
-                JudsonRun::scene->Add(student, MOVING);
+                if (direction == WLEFT) {
+                    Student* student = new Student(tileSet2, shadow, 0, posY(rng) * 2, direction);
+                    JudsonRun::scene->Add(student, MOVING);
+                }
+                else {
+                    Student* student = new Student(tileSet2, shadow, window->Width(), posY(rng) * 2, direction);
+                    JudsonRun::scene->Add(student, MOVING);
+                }
                 break;
             }
             case ARTUR:
             {
-                Student* student = new Student(tileSet3, shadow, 0, posY(rng) * 2);
-                JudsonRun::scene->Add(student, MOVING);
+                if (direction == WLEFT) {
+                    Student* student = new Student(tileSet3, shadow, 0, posY(rng) * 2, direction);
+                    JudsonRun::scene->Add(student, MOVING);
+                }
+                else {
+                    Student* student = new Student(tileSet3, shadow, window->Width(), posY(rng) * 2, direction);
+                    JudsonRun::scene->Add(student, MOVING);
+                }
                 break;
             }
             case GUILHERM:
             {
-                Student* student = new Student(tileSet4, shadow, 0, posY(rng) * 2);
-                JudsonRun::scene->Add(student, MOVING);
+                if (direction == WLEFT) {
+                    Student* student = new Student(tileSet4, shadow, 0, posY(rng) * 2, direction);
+                    JudsonRun::scene->Add(student, MOVING);
+                }
+                else {
+                    Student* student = new Student(tileSet4, shadow, window->Width(), posY(rng) * 2, direction);
+                    JudsonRun::scene->Add(student, MOVING);
+                }
                 break;
             }
         }
