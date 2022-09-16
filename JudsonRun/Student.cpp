@@ -1,6 +1,6 @@
 #include "Student.h"
 
-Student::Student(TileSet *tileset, Image *shadowImg, int x, int y)
+Student::Student(TileSet *tileset, Image *shadowImg, int x, int y, uint direction)
 {
     type = ENEMY;
 
@@ -12,6 +12,8 @@ Student::Student(TileSet *tileset, Image *shadowImg, int x, int y)
 
     anim->Add(WLEFT, SeqLeft, 2);
     anim->Add(WRIGHT, SeqRight, 2);
+
+    walkingDirection = direction;
 
     if (x)
     {
