@@ -170,7 +170,7 @@ void Judson::OnCollision(Object *other)
         }
         else
         {
-            // game over
+            JudsonRun::gameover = true;
         }
     }
 

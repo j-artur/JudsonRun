@@ -168,6 +168,7 @@
     <ClCompile Include="CppGenerator.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Judson.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="CppGenerator.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameOver.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Image.h" />

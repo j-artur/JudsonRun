@@ -3,12 +3,13 @@
 
 #include "Cpp.h"
 #include "CppGenerator.h"
-#include "StudentGenerator.h"
 #include "Engine.h"
 #include "Game.h"
+#include "GameOver.h"
 #include "Judson.h"
 #include "Panel.h"
 #include "Scene.h"
+#include "StudentGenerator.h"
 
 enum JudsonRunObjects
 {
@@ -27,6 +28,7 @@ class JudsonRun : public Game
   public:
     static Scene *scene;
     static Panel *panel;
+    static bool gameover;
 
     void Init();
     void Update();

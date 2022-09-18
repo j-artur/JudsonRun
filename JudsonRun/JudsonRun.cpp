@@ -1,11 +1,15 @@
 #include "JudsonRun.h"
 #include "Resources.h"
 
+bool JudsonRun::gameover = false;
+
 Scene *JudsonRun::scene = nullptr;
 Panel *JudsonRun::panel = nullptr;
 
 void JudsonRun::Init()
 {
+    gameover = false;
+
     scene = new Scene();
     panel = new Panel();
 
@@ -25,6 +29,9 @@ void JudsonRun::Init()
 
 void JudsonRun::Update()
 {
+    if (gameover)
+        return Engine::Next<GameOver>();
+
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
 
@@ -36,7 +43,7 @@ void JudsonRun::Update()
 
 void JudsonRun::Draw()
 {
-    bg->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
+    bg->Draw(window->CenterX(), window->CenterY() + 40.0f, Layer::BACK);
 
     panel->Draw();
     scene->Draw();
