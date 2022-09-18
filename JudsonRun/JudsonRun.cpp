@@ -9,7 +9,7 @@ void JudsonRun::Init()
     scene = new Scene();
     panel = new Panel();
 
-    bg = new Sprite("Resources/background.png");
+    bg = new Sprite("Resources/Background.png");
     shadow = new Image("Resources/shadow.png");
 
     auto cppGenerator = new CppGenerator(shadow);
