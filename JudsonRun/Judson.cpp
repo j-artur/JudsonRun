@@ -177,7 +177,7 @@ void Judson::OnCollision(Object *other)
     if (other->Type() == CPP && !((Cpp *)other)->Falling())
     {
         powered = true;
-        poweredTime = 10.0f;
+        poweredTime = 3.0f;
 
         JudsonRun::scene->Delete(other, MOVING);
     }

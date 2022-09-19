@@ -37,6 +37,8 @@ private:
     Image* shadow = nullptr;            // sombra do estudante
     float spawnInterval;                // tempo em segundo para aparecer novos estudantes
     float timer;                        // temporizador
+    float timeElapsed;
+    bool max;
     mt19937 rng;                        // gerador de números aleatórios
     uniform_int_distribution<int> posY; // distribuição de números aleatórios para posição y do estudante
 

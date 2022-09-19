@@ -18,6 +18,7 @@ StudentGenerator::StudentGenerator(Image* shadow) : shadow(shadow), timer(0.0f)
     posY = uniform_int_distribution<int>(80, window->Height() / 2 - 15);
 
     spawnInterval = 3.0f;
+    max = false;
 }
 
 StudentGenerator::~StudentGenerator()
@@ -31,6 +32,7 @@ StudentGenerator::~StudentGenerator()
 void StudentGenerator::Update()
 {
     timer += gameTime;
+    timeElapsed += gameTime;
 
     if (timer > spawnInterval)
     {
@@ -95,6 +97,17 @@ void StudentGenerator::Update()
         while (timer > spawnInterval)
             timer -= spawnInterval;
     }
+
+    if (timeElapsed > 10.0f && !max)
+    {
+        spawnInterval -= 0.5f;
+        timeElapsed = 0;
+
+        if (spawnInterval < 1.0f)
+            max = true;
+    }
+
+
 }
 
 void StudentGenerator::Draw()

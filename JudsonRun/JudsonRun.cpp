@@ -1,5 +1,6 @@
 #include "JudsonRun.h"
 #include "Resources.h"
+#include "Home.h"
 
 bool JudsonRun::gameover = false;
 
@@ -71,7 +72,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     // engine->window->Cursor(IDC_CURSOR);
     // engine->graphics->VSync(true);
 
-    int status = engine->Start(new JudsonRun());
+    int status = engine->Start(new Home());
 
     delete engine;
     return status;

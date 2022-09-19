@@ -26,6 +26,7 @@ class CppGenerator : public Object
     Image *shadow = nullptr;            // sombra do cpp
     float timer;                        // temporizador
     float spawnInterval;                // tempo em segundo para criação de cpps
+    float timeElapsed;
     mt19937 rng;                        // gerador de números aleatórios
     uniform_int_distribution<int> posX; // distribuição de números aleatórios para posição x do cpp
     uniform_int_distribution<int> posY; // distribuição de números aleatórios para posição y final do cpp
