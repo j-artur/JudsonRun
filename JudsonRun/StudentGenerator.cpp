@@ -15,7 +15,7 @@ StudentGenerator::StudentGenerator(Image *shadow) : shadow(shadow), timer(0.0f)
     random_device rd;
     rng.seed(rd());
 
-    posY = uniform_int_distribution<int>(128, window->Height() / 2 - 48);
+    posY = uniform_int_distribution<int>(64, window->Height() / 2 - 32);
 
     spawnInterval = 1.5f;
 }
