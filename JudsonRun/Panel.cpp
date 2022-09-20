@@ -27,7 +27,7 @@ void Panel::Draw()
 {
     background->Draw(window->Width() / 2.0f, 40.0f, 0.001f);
     for (int i = 0; i < scoreTxt.length(); ++i)
-        anim[i].Draw(scoreTxt.at(i) - '0', 36.0f + (24.0f * i), 58.0f, 0.0001f);
+        anim[i].Draw(scoreTxt.at(i) - '0', 544.0f + (24.0f * i), 58.0f, 0.0001f);
 }
 
 void Panel::AddScore(uint s)
