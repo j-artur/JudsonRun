@@ -7,8 +7,26 @@
 #include "Object.h"
 #include "Panel.h"
 
-enum WalkingState { STILLEFT, STILLRIGHT, WALKLEFT, WALKRIGHT, POWEREDLEFT, POWEREDRIGHT, POWEREDSTILLEFT, POWEREDSTILLRIGHT };
-enum LastPressed { LEFT, RIGHT };
+enum WalkingState
+{
+    STILLEFT,
+    STILLRIGHT,
+    WALKLEFT,
+    WALKRIGHT,
+    POWEREDLEFT,
+    POWEREDRIGHT,
+    POWEREDSTILLEFT,
+    POWEREDSTILLRIGHT,
+    DECAYINGLEFT,
+    DECAYINGRIGHT,
+    DECAYINGSTILLLEFT,
+    DECAYINGSTILLRIGHT
+};
+enum LastPressed
+{
+    LEFT,
+    RIGHT
+};
 
 class Judson : public Object
 {

@@ -39,6 +39,13 @@ Student::~Student()
 
 void Student::Update()
 {
+    if (x < -32.0f || x > window->Width() + 32.0f)
+    {
+        JudsonRun::scene->Delete();
+        JudsonRun::panel->AddScore(10);
+        return;
+    }
+
     if (walkingDirection)
         Translate(speed * gameTime, 0);
     else

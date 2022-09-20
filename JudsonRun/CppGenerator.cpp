@@ -11,7 +11,7 @@ CppGenerator::CppGenerator(Image *shadow) : shadow(shadow), timer(0.0f)
     posX = uniform_int_distribution<int>(14, window->Width() / 2 - 14);
     posY = uniform_int_distribution<int>(96, window->Height() / 2 - 16);
 
-    spawnInterval = 5.0f;
+    spawnInterval = 30.0f;
 }
 
 CppGenerator::~CppGenerator()

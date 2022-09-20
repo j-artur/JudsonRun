@@ -4,17 +4,21 @@ Judson::Judson(Image *shadowImg)
 {
     type = PLAYER;
 
-    tileSet = new TileSet("Resources/judson.png", 64, 96, 6, 12);
+    tileSet = new TileSet("Resources/judson.png", 64, 96, 10, 20);
     anim = new Animation(tileSet, 0.2f, true);
 
     uint SeqLeft[2] = {0, 1};
-    uint SeqRight[2] = {6, 7};
+    uint SeqRight[2] = {10, 11};
     uint SeqPoweredLeft[4] = {2, 3, 4, 5};
-    uint SeqPoweredRight[4] = {8, 9, 10, 11};
+    uint SeqPoweredRight[4] = {12, 13, 14, 15};
     uint SeqStillLeft[1] = {1};
-    uint SeqStillRight[1] = {6};
+    uint SeqStillRight[1] = {10};
     uint SeqPoweredStillLeft[2] = {3, 5};
-    uint SeqPoweredStillRight[2] = {8, 10};
+    uint SeqPoweredStillRight[2] = {12, 14};
+    uint SeqDecayingLeft[4] = {6, 7, 8, 9};
+    uint SeqDecayingRight[4] = {16, 17, 18, 19};
+    uint SeqDecayingStillLeft[2] = {7, 9};
+    uint SeqDecayingStillRight[2] = {17, 19};
 
     // normal states
     anim->Add(WALKLEFT, SeqLeft, 2);
@@ -27,6 +31,12 @@ Judson::Judson(Image *shadowImg)
     anim->Add(POWEREDRIGHT, SeqPoweredRight, 4);
     anim->Add(POWEREDSTILLEFT, SeqPoweredStillLeft, 2);
     anim->Add(POWEREDSTILLRIGHT, SeqPoweredStillRight, 2);
+
+    // decaying states
+    anim->Add(DECAYINGLEFT, SeqDecayingLeft, 4);
+    anim->Add(DECAYINGRIGHT, SeqDecayingRight, 4);
+    anim->Add(DECAYINGSTILLLEFT, SeqDecayingStillLeft, 2);
+    anim->Add(DECAYINGSTILLRIGHT, SeqDecayingStillRight, 2);
 
     shadow = new Sprite(shadowImg);
 
@@ -96,20 +106,42 @@ void Judson::Update()
     // when powered change to powered states
     if (powered)
     {
-        switch (state)
+        if (poweredTime > 1.0f)
         {
-        case STILLRIGHT:
-            state = POWEREDSTILLRIGHT;
-            break;
-        case STILLEFT:
-            state = POWEREDSTILLEFT;
-            break;
-        case WALKLEFT:
-            state = POWEREDLEFT;
-            break;
-        case WALKRIGHT:
-            state = POWEREDRIGHT;
-            break;
+
+            switch (state)
+            {
+            case STILLRIGHT:
+                state = POWEREDSTILLRIGHT;
+                break;
+            case STILLEFT:
+                state = POWEREDSTILLEFT;
+                break;
+            case WALKLEFT:
+                state = POWEREDLEFT;
+                break;
+            case WALKRIGHT:
+                state = POWEREDRIGHT;
+                break;
+            }
+        }
+        else
+        {
+            switch (state)
+            {
+            case STILLRIGHT:
+                state = DECAYINGSTILLRIGHT;
+                break;
+            case STILLEFT:
+                state = DECAYINGSTILLLEFT;
+                break;
+            case WALKLEFT:
+                state = DECAYINGLEFT;
+                break;
+            case WALKRIGHT:
+                state = DECAYINGRIGHT;
+                break;
+            }
         }
     }
 
@@ -177,7 +209,7 @@ void Judson::OnCollision(Object *other)
     if (other->Type() == CPP && !((Cpp *)other)->Falling())
     {
         powered = true;
-        poweredTime = 3.0f;
+        poweredTime = 5.0f;
 
         JudsonRun::scene->Delete(other, MOVING);
     }
