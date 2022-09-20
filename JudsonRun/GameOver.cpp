@@ -1,4 +1,5 @@
 #include "GameOver.h"
+#include "Home.h"
 
 string GameOver::score = "";
 
@@ -27,6 +28,9 @@ void GameOver::Update()
 {
     if (window->KeyDown(VK_RETURN))
         return Engine::Next<JudsonRun>();
+
+    if (window->KeyDown(VK_SPACE))
+        return Engine::Next<Home>();
 }
 
 void GameOver::Draw()
