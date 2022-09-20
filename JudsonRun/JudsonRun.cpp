@@ -30,8 +30,10 @@ void JudsonRun::Init()
 
 void JudsonRun::Update()
 {
-    if (gameover)
+    if (gameover) {
+        GameOver::score = to_string(panel->Score());
         return Engine::Next<GameOver>();
+    }
 
     if (window->KeyDown(VK_ESCAPE))
         window->Close();

@@ -11,11 +11,16 @@ Panel::Panel()
     };
 }
 
+
 Panel::~Panel()
 {
     delete[] anim;
     delete numbers;
     delete background;
+}
+
+uint Panel::Score() {
+    return score;
 }
 
 void Panel::Update()

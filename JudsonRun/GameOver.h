@@ -10,8 +10,12 @@ class GameOver : public Game
 {
   private:
     Sprite *bg = nullptr;
+    Sprite* scoreimg = nullptr;
+    TileSet* tileset = nullptr;
+    Animation** anim = nullptr;
 
   public:
+    static string score;
     void Init();
     void Update();
     void Draw();

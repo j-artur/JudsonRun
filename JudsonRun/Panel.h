@@ -27,6 +27,7 @@ class Panel : public Object
     ~Panel();
 
     void AddScore(uint s);
+    uint Score();
 
     void Update();
     void Draw();
