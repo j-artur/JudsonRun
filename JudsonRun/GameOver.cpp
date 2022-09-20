@@ -20,6 +20,7 @@ void GameOver::Finalize()
     delete bg;
     delete tileset;
     delete[] anim;
+    delete scoreimg;
 }
 
 void GameOver::Update()
