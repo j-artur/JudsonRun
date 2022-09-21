@@ -1,6 +1,6 @@
 #include "Student.h"
 
-Student::Student(TileSet *tileset, Image *shadowImg, int x, int y, uint direction)
+Student::Student(TileSet *tileset, Image *shadowImg, int x, int y, uint direction, StudentsType studentType)
 {
     type = ENEMY;
 
@@ -26,9 +26,26 @@ Student::Student(TileSet *tileset, Image *shadowImg, int x, int y, uint directio
         walkingDirection = WRIGHT;
     }
 
-    speed = 200.0f;
+    switch (studentType)
+    {
+    case ABRAAO:
+        speed = 200.0f;
+        BBox(new Rect(-16.0f, -36.0f, 16.0f, 48.0f));
+        break;
+    case WILLIAM:
+        speed = 250.0f;
+        BBox(new Rect(-14.0f, -24.0f, 14.0f, 48.0f));
+        break;
+    case ARTUR:
+        speed = 200.0f;
+        BBox(new Rect(-16.0f, -36.0f, 16.0f, 48.0f));
+        break;
+    case GUILHERM:
+        speed = 200.0f;
+        BBox(new Rect(-16.0f, -36.0f, 16.0f, 48.0f));
+        break;
+    }
 
-    BBox(new Rect(-16.0f, -36.0f, 16.0f, 48.0f));
     MoveTo(float(x), float(y));
 }
 

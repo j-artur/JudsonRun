@@ -4,10 +4,10 @@
 // ---------------------------------------------------------------------------------
 // Inclusões
 
-#include "Student.h"
 #include "JudsonRun.h"
 #include "Object.h"
 #include "Scene.h"
+#include "Student.h"
 #include "TileSet.h"
 #include "Timer.h"
 
@@ -19,30 +19,22 @@ using std::uniform_int_distribution;
 
 // ------------------------------------------------------------------------------
 
-enum StudentsTypes
-{
-    ABRAAO,
-    WILLIAM,
-    ARTUR,
-    GUILHERM
-};
-
 class StudentGenerator : public Object
 {
-private:
-    TileSet* tileSet = nullptr;         // tileset do estudante
-    TileSet* tileSet2 = nullptr;
-    TileSet* tileSet3 = nullptr;
-    TileSet* tileSet4 = nullptr;
-    Image* shadow = nullptr;            // sombra do estudante
-    float spawnInterval;                // tempo em segundo para aparecer novos estudantes
-    float timer;                        // temporizador
+  private:
+    TileSet *tileSet = nullptr; // tileset do estudante
+    TileSet *tileSet2 = nullptr;
+    TileSet *tileSet3 = nullptr;
+    TileSet *tileSet4 = nullptr;
+    Image *shadow = nullptr; // sombra do estudante
+    float spawnInterval;     // tempo em segundo para aparecer novos estudantes
+    float timer;             // temporizador
     float timeElapsed;
     mt19937 rng;                        // gerador de números aleatórios
     uniform_int_distribution<int> posY; // distribuição de números aleatórios para posição y do estudante
 
-public:
-    StudentGenerator(Image* studentShadow);
+  public:
+    StudentGenerator(Image *studentShadow);
     ~StudentGenerator();
 
     void Update();

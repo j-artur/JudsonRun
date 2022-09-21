@@ -45,12 +45,12 @@ void StudentGenerator::Update()
         case ABRAAO: {
             if (direction == WLEFT)
             {
-                Student *student = new Student(tileSet, shadow, 0, posY(rng) * 2, direction);
+                Student *student = new Student(tileSet, shadow, 0, posY(rng) * 2, direction, ABRAAO);
                 JudsonRun::scene->Add(student, MOVING);
             }
             else
             {
-                Student *student = new Student(tileSet, shadow, window->Width(), posY(rng) * 2, direction);
+                Student *student = new Student(tileSet, shadow, window->Width(), posY(rng) * 2, direction, ABRAAO);
                 JudsonRun::scene->Add(student, MOVING);
             }
             break;
@@ -58,12 +58,12 @@ void StudentGenerator::Update()
         case WILLIAM: {
             if (direction == WLEFT)
             {
-                Student *student = new Student(tileSet2, shadow, 0, posY(rng) * 2, direction);
+                Student *student = new Student(tileSet2, shadow, 0, posY(rng) * 2, direction, WILLIAM);
                 JudsonRun::scene->Add(student, MOVING);
             }
             else
             {
-                Student *student = new Student(tileSet2, shadow, window->Width(), posY(rng) * 2, direction);
+                Student *student = new Student(tileSet2, shadow, window->Width(), posY(rng) * 2, direction, WILLIAM);
                 JudsonRun::scene->Add(student, MOVING);
             }
             break;
@@ -71,12 +71,12 @@ void StudentGenerator::Update()
         case ARTUR: {
             if (direction == WLEFT)
             {
-                Student *student = new Student(tileSet3, shadow, 0, posY(rng) * 2, direction);
+                Student *student = new Student(tileSet3, shadow, 0, posY(rng) * 2, direction, ARTUR);
                 JudsonRun::scene->Add(student, MOVING);
             }
             else
             {
-                Student *student = new Student(tileSet3, shadow, window->Width(), posY(rng) * 2, direction);
+                Student *student = new Student(tileSet3, shadow, window->Width(), posY(rng) * 2, direction, ARTUR);
                 JudsonRun::scene->Add(student, MOVING);
             }
             break;
@@ -84,12 +84,12 @@ void StudentGenerator::Update()
         case GUILHERM: {
             if (direction == WLEFT)
             {
-                Student *student = new Student(tileSet4, shadow, 0, posY(rng) * 2, direction);
+                Student *student = new Student(tileSet4, shadow, 0, posY(rng) * 2, direction, GUILHERM);
                 JudsonRun::scene->Add(student, MOVING);
             }
             else
             {
-                Student *student = new Student(tileSet4, shadow, window->Width(), posY(rng) * 2, direction);
+                Student *student = new Student(tileSet4, shadow, window->Width(), posY(rng) * 2, direction, GUILHERM);
                 JudsonRun::scene->Add(student, MOVING);
             }
             break;
