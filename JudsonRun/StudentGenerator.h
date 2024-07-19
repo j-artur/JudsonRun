@@ -1,9 +1,6 @@
 #ifndef _STUDENT_GENERATOR_H_
 #define _STUDENT_GENERATOR_H_
 
-// ---------------------------------------------------------------------------------
-// Inclusões
-
 #include "JudsonRun.h"
 #include "Object.h"
 #include "Scene.h"
@@ -17,21 +14,19 @@ using std::mt19937;
 using std::random_device;
 using std::uniform_int_distribution;
 
-// ------------------------------------------------------------------------------
-
 class StudentGenerator : public Object
 {
   private:
-    TileSet *tileSet = nullptr; // tileset do estudante
+    TileSet *tileSet = nullptr;
     TileSet *tileSet2 = nullptr;
     TileSet *tileSet3 = nullptr;
     TileSet *tileSet4 = nullptr;
-    Image *shadow = nullptr; // sombra do estudante
-    float spawnInterval;     // tempo em segundo para aparecer novos estudantes
-    float timer;             // temporizador
+    Image *shadow = nullptr;
+    float spawnInterval;
+    float timer;
     float timeElapsed;
-    mt19937 rng;                        // gerador de números aleatórios
-    uniform_int_distribution<int> posY; // distribuição de números aleatórios para posição y do estudante
+    mt19937 rng;
+    uniform_int_distribution<int> posY;
 
   public:
     StudentGenerator(Image *studentShadow);
@@ -40,7 +35,5 @@ class StudentGenerator : public Object
     void Update();
     void Draw();
 };
-
-// ---------------------------------------------------------------------------------
 
 #endif

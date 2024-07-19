@@ -20,19 +20,16 @@ Judson::Judson(Image *shadowImg)
     uint SeqDecayingStillLeft[2] = {7, 9};
     uint SeqDecayingStillRight[2] = {17, 19};
 
-    // normal states
     anim->Add(WALKLEFT, SeqLeft, 2);
     anim->Add(WALKRIGHT, SeqRight, 2);
     anim->Add(STILLEFT, SeqStillLeft, 1);
     anim->Add(STILLRIGHT, SeqStillRight, 1);
 
-    // powered states
     anim->Add(POWEREDLEFT, SeqPoweredLeft, 4);
     anim->Add(POWEREDRIGHT, SeqPoweredRight, 4);
     anim->Add(POWEREDSTILLEFT, SeqPoweredStillLeft, 2);
     anim->Add(POWEREDSTILLRIGHT, SeqPoweredStillRight, 2);
 
-    // decaying states
     anim->Add(DECAYINGLEFT, SeqDecayingLeft, 4);
     anim->Add(DECAYINGRIGHT, SeqDecayingRight, 4);
     anim->Add(DECAYINGSTILLLEFT, SeqDecayingStillLeft, 2);
@@ -52,7 +49,6 @@ Judson::~Judson()
 void Judson::Update()
 {
 
-    // mc movements
     if (window->KeyDown(VK_LEFT))
     {
         state = WALKLEFT;
@@ -103,7 +99,6 @@ void Judson::Update()
             state = STILLEFT;
     }
 
-    // when powered change to powered states
     if (powered)
     {
         if (poweredTime > 1.0f)
@@ -145,7 +140,6 @@ void Judson::Update()
         }
     }
 
-    // two buttons on the same time handling
     float diaSpeed = speed / float(sqrt(2.0));
 
     if (left && up)
@@ -165,7 +159,6 @@ void Judson::Update()
     else if (down)
         Translate(0.0f, speed * gameTime);
 
-    // maintain mc on the screen
     if (x + tileSet->TileWidth() / 2.0f > window->Width())
         MoveTo(window->Width() - tileSet->TileWidth() / 2.0f, y);
 
@@ -178,7 +171,6 @@ void Judson::Update()
     if (y - tileSet->TileHeight() / 2.0f < 80)
         MoveTo(x, tileSet->TileHeight() / 2.0f + 80);
 
-    // powered timer
     if (powered)
     {
         poweredTime -= gameTime;
